@@ -60,7 +60,7 @@ class BukuController extends Controller
                 'status' => false,
                 'message' => 'Gagal memasukkan data!',
                 'data' => $validator->errors(),
-            ], 406);
+            ]);
         }
 
         $data = Buku::create([
@@ -92,7 +92,7 @@ class BukuController extends Controller
             return response()->json([
                 'status' => false,
                 'message' => 'Data tidak ditemukan!',
-            ], 404);
+            ]);
         }
     }
 
@@ -123,7 +123,7 @@ class BukuController extends Controller
                 'status' => false,
                 'message' => 'Gagal mengubah data!',
                 'data' => $validator->errors(),
-            ], 406);
+            ]);
         }
 
         $data = Buku::find($id);
