@@ -14,7 +14,7 @@ class BukuController extends Controller
      */
     public function index()
     {
-        $data = Buku::orderBy('judul', 'ASC')->get();
+        $data = Buku::orderBy('judul', 'ASC')->paginate(5);
 
         return response()->json([
             'status' => true,

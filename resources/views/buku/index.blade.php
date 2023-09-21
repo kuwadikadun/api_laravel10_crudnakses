@@ -81,9 +81,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $item)
+                    @php
+                        $i=$data['from']
+                    @endphp
+                    @foreach ($data['data'] as $item)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $i }}</td>
                             <td>{{ $item['judul'] }}</td>
                             <td>{{ $item['pengarang'] }}</td>
                             <td>{{ date('d F Y', strtotime($item['tanggal_publikasi'])) }}</td>
@@ -96,9 +99,25 @@
                                 </form>
                             </td>
                         </tr>
+                        @php
+                            $i++
+                        @endphp
                     @endforeach
+                    
                 </tbody>
             </table>
+
+            {{-- Pagination --}}
+            @if ($data['links'])
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    @foreach ($data['links'] as $item)
+                        <li class="page-item {{ $item['active'] ? 'active' : '' }}"><a class="page-link" href="{{ $item['url2'] }}">{!! $item['label'] !!}</a></li>
+                    @endforeach
+                </ul>
+              </nav>
+              @endif
+            {{-- Akhir Pagination --}}
 
         </div>
         <!-- AKHIR DATA -->
