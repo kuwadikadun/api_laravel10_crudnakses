@@ -27,7 +27,7 @@ php artisan db:seed --class=BukuSeeder
 php artisan serve
 ```
 
-8. Run artisan serve in port 8001 for turn on the interface web.
+8. Run artisan serve in port 8001 in different terminal for turn on the interface web.
    
 ```bash
 php artisan serve --port=8001
